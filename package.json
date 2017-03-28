@@ -1,0 +1,25 @@
+{
+  "name": "perf-sourcemap-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "./bin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bufferhelper": "^0.2.1",
+    "form-data": "^2.1.2",
+    "glob": "^7.1.1",
+    "rimraf": "^2.6.1"
+  },
+  "perfUpload": {
+    "files": "dist/a.*",
+    "token": "be1d4b44c6a560de2d664ab39a0831afdf2f35f8361293fae17df97b23fbda74",
+    "productId": "supermarket",
+    "clean": true
+  }
+}
