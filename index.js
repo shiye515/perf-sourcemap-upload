@@ -6,7 +6,7 @@ var glob = require('glob');
 var assert = require('assert');
 var rimraf = require('rimraf');
 
-var url = 'http://fe.inwaimai.baidu.com/performance/platform_sourcemap/uploadsourcemap';
+var url = '';
 
 var option = {};
 
@@ -18,7 +18,7 @@ function processFile(file) {
         form.append('online_time', option.time);
         form.append('sourcemap', fs.createReadStream(file));
 
-        form.submit(url, function(err, res) {
+        form.submit(option.receiver, function(err, res) {
             let bufferHelper = new BufferHelper();
             let concat = bufferHelper.concat.bind(bufferHelper);
             res.on('data', concat);
@@ -59,9 +59,10 @@ function upload(patterns, config) {
     if (patterns.length === 0) {
         patterns = [].concat(option.files);
     }
-    var { token, productId } = option;
+    var { token, productId, receiver } = option;
     assert.equal(typeof token, 'string', 'perf-sourcemap-upload: token should be a string');
     assert.equal(typeof productId, 'string', 'perf-sourcemap-upload: productId should be a string');
+    assert.equal(typeof receiver, 'string', 'perf-sourcemap-upload: receiver should be a string');
 
     if (patterns.length === 0) {
         return Promise.resolve([]);

@@ -16,6 +16,10 @@ upload('dist/*.map', options).then(function(files) {
 
 options 可以通过upload的第二个参数传入，也可以配置在`package.json`的`perfUpload`字段
 
+* receiver
+
+    上传服务接口地址, 用于接收上传的sourcemap
+
 * files
 
     作用同第一个参数，第一个参数如果为空则取这个值
